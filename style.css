@@ -1,149 +1,691 @@
-@keyframes slide-fade-in {
-    from {
-        opacity: 0.2;
-        transform: translateY(10vh);
-    }
+/* ============================================================
+   NEO-BRUTALIST DESIGN SYSTEM
+   YSP Excellence Awards 2024
+   ============================================================ */
 
+/* ===== DESIGN TOKENS ===== */
+:root {
+  /* Core Palette */
+  --cream: #FFFDF5;
+  --black: #000000;
+  --accent-red: #FF6B6B;
+  --secondary-yellow: #FFD93D;
+  --muted-violet: #C4B5FD;
+  --white: #FFFFFF;
+
+  /* Light Theme (Default) */
+  --bg-primary: var(--cream);
+  --bg-secondary: var(--secondary-yellow);
+  --bg-card: var(--white);
+  --text-primary: var(--black);
+  --text-inverse: var(--white);
+  --border-color: var(--black);
+  --shadow-color: var(--black);
+  --accent-color: var(--accent-red);
+  --secondary-color: var(--secondary-yellow);
+  --muted-color: var(--muted-violet);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .card {
-        view-timeline-name: --item-timeline;
-        animation: slide-fade-in both;
-        animation-timeline: --item-timeline;
-        animation-range: contain 0% contain 60%;
-    }
+/* ===== RESET & BASE ===== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+html {
+  scroll-behavior: smooth;
 }
-/*FONT STYLES*/
-@font-face {
-  font-family: 'gg sans Bold';
-  font-style: normal;
-  font-weight: bold;
-  src: local('gg sans Bold'), url('gg sans Bold.woff') format('woff');
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.4;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 200ms ease-out, color 200ms ease-out;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
-*{
-  font-family:'gg sans Bold';
-  font-weight:bolder;
-  font-size:16px;
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
-#preloaded-intro{
-  position: fixed;
-  z-index: 9999999;
+
+/* ===== TYPOGRAPHY ===== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: var(--text-primary);
+}
+
+p {
+  color: var(--text-primary);
+}
+
+/* ===== UTILITY CLASSES ===== */
+/* Shadows */
+.shadow-small {
+  box-shadow: 4px 4px 0px 0px var(--shadow-color);
+}
+
+.shadow-medium {
+  box-shadow: 8px 8px 0px 0px var(--shadow-color);
+}
+
+.shadow-large {
+  box-shadow: 12px 12px 0px 0px var(--shadow-color);
+}
+
+.shadow-massive {
+  box-shadow: 16px 16px 0px 0px var(--shadow-color);
+}
+
+/* Rotations */
+.sticker-rotate-1 {
+  transform: rotate(1deg);
+}
+
+.sticker-rotate-2 {
+  transform: rotate(-2deg);
+}
+
+.sticker-rotate-3 {
+  transform: rotate(3deg);
+}
+
+/* ===== LAYOUT ===== */
+.container {
   width: 100%;
-  height: 100vh;
-  background: #212529 url(/assets/discord-loading.gif) no-repeat center;
-}
-/*FONT STYLES*/
-.customcard {
-
-    /* background-color: rgba(0, 0, 0, 0.142); */
-    border-radius: 8px;
-    backdrop-filter: blur(100px);
-
-
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
-.floating-button{
-width: 60px;
-height: 60px;
-}
-.floating-button {
-    background-image: url(/assets/discordicon.png);
-    background-size: cover;
-    /* border: solid 2px rgb(107, 102, 102); */
-    border-radius: 10%;
-    display: block; 
-    position: fixed; 
-    bottom: 1%; 
-    right: 1%; 
-    /* margin: -60px 0 0 -280px; */
-     /* transform: rotate(360deg);
-    border-radius: 50%;
-    position: fixed;
-    bottom: 0px;
-    right: 10px; */
-    opacity: 0.5;
-    transition-property: all;
-    transition-duration: 1s;
-    z-index: 999;
-    border: none;
-    background-color: transparent;
-    /* transform: 1s; */
-
-    animation-name: float-rotate;
-    animation-play-state: running;
-    animation-duration: 5s;
-    animation-timing-function:linear;
-    animation-iteration-count: infinite; 
-}
-@keyframes float-rotate 
-{
-     from{
-        transform: rotate(0deg);
-     }
-     to{
-        transform: rotate(360deg);
-     }
-    
+/* ===== HEADER ===== */
+.site-header {
+  border-bottom: 4px solid var(--border-color);
+  background-color: var(--bg-primary);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.floating-button:hover {
-    transform: rotate(360deg) translate(0);
-    opacity: 1;
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  flex-wrap: wrap;
 }
-/* @property --angle{
-    syntax: "<angle>";
-    initial-value: 0deg;
-    inherits: false;
+
+.logo-box {
+  border: 4px solid var(--border-color);
+  background-color: var(--secondary-color);
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
-.customcard::after, .customcard::before{
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-image: conic-gradient(from var(--angle), red, green, yellow, blue, red);
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    z-index: -1;
-    padding: 3px;
-    border-radius: 10px;
-    animation: 3s spin linear infinite;
+
+.logo-box img {
+  display: block;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.header-title {
+  flex: 1;
+  text-align: center;
+  min-width: 0;
+}
+
+.site-heading {
+  font-size: clamp(1.25rem, 4vw, 2.75rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  letter-spacing: -0.02em;
+}
+
+.heading-sub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.year-badge {
+  display: inline-block;
+  background-color: var(--accent-color);
+  border: 4px solid var(--border-color);
+  padding: 0.25rem 0.75rem;
+  font-size: 0.65em;
+  letter-spacing: 0.05em;
+}
+
+.subtitle {
+  font-size: clamp(0.75rem, 2vw, 1.125rem);
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  margin-top: 0.5rem;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+}
+
+/* ===== MARQUEE ===== */
+.marquee-container {
+  border-top: 4px solid var(--border-color);
+  border-bottom: 4px solid var(--border-color);
+  background-color: var(--accent-color);
+  overflow: hidden;
+  padding: 0.75rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 3rem;
+  animation: marquee-scroll 20s linear infinite;
+  white-space: nowrap;
+  font-weight: 900;
+  font-size: clamp(0.875rem, 2vw, 1.125rem);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--black);
+  width: max-content;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
   }
-  .customcard::before{
-    filter: blur(1.5rem);
-    opacity: 0.5;
+
+  to {
+    transform: translateX(-50%);
   }
-  @keyframes spin{
-    from{
-      --angle: 0deg;
-    }
-    to{
-      --angle: 360deg;
-    }
-  } */
-
-.row {
-    margin-left: 5px;
-    margin-right: 5px;
 }
 
-.card {
-    transition: all;
-    transition-duration: 0.7s;
-    scale: 1;
-    padding: 3%;
-    
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  background-color: var(--bg-primary);
+  min-height: 100vh;
+  position: relative;
 }
 
-.card:hover {
-    transition: all;
-    transition-duration: 0.6s;
-    scale: 1.04;
-    box-shadow: 5px 6px 15px 0px rgb(212, 20, 20);
+/* Halftone dot texture overlay */
+.main-content::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, var(--border-color) 1.5px, transparent 1.5px);
+  background-size: 30px 30px;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
 }
-.card-htext{
+
+/* ===== FEATURED SECTION ===== */
+.featured-section {
+  padding: 3rem 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.featured-card {
+  border: 4px solid var(--border-color);
+  background-color: var(--secondary-color);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 12px 12px 0px 0px var(--shadow-color);
+}
+
+.featured-badge {
+  position: absolute;
+  top: -1.25rem;
+  right: 2rem;
+  background-color: var(--accent-color);
+  border: 4px solid var(--border-color);
+  padding: 0.5rem 1.5rem;
+  font-weight: 900;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transform: rotate(3deg);
+  box-shadow: 4px 4px 0px 0px var(--shadow-color);
+  z-index: 2;
+}
+
+.featured-media {
+  border: 4px solid var(--border-color);
+  background-color: var(--bg-card);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 9;
+}
+
+.featured-media img,
+.featured-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.featured-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.featured-title {
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+
+.featured-desc {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+/* ===== AWARDS SECTION ===== */
+.awards-section {
+  padding: 3rem 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.section-title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  white-space: nowrap;
+}
+
+.section-line {
+  flex: 1;
+  height: 4px;
+  background-color: var(--border-color);
+  min-width: 60px;
+}
+
+/* ===== AWARDS GRID ===== */
+.awards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* ===== AWARD CARDS ===== */
+.award-card {
+  border: 4px solid var(--border-color);
+  background-color: var(--bg-card);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: default;
+  box-shadow: 8px 8px 0px 0px var(--shadow-color);
+}
 
 
+.award-card:hover {
+  box-shadow: 16px 16px 0px 0px var(--shadow-color);
+}
+
+
+.award-media {
+  border-bottom: 4px solid var(--border-color);
+  background-color: var(--bg-primary);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.award-media img,
+.award-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.award-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+}
+
+.award-title {
+  font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+  line-height: 1.1;
+}
+
+.award-desc {
+  font-size: clamp(0.9375rem, 2vw, 1rem);
+  line-height: 1.5;
+  font-weight: 500;
+  flex: 1;
+}
+
+/* ===== BUTTONS ===== */
+.neo-button,
+.neo-button-small {
+  border: 4px solid var(--border-color);
+  background-color: var(--accent-color);
+  color: var(--text-primary);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 900;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.875rem 1.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 4px 4px 0px 0px var(--shadow-color);
+  transition: transform 100ms ease-out, box-shadow 100ms ease-out, background-color 100ms ease-out;
+}
+
+.neo-button-small {
+  padding: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.neo-button:hover,
+.neo-button-small:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0px 0px var(--shadow-color);
+}
+
+.neo-button:active,
+.neo-button-small:active {
+  transform: translateX(2px) translateY(2px);
+  box-shadow: 0px 0px 0px 0px var(--shadow-color);
+}
+
+/* ===== FLOATING DISCORD BUTTON ===== */
+.floating-discord {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 64px;
+  height: 64px;
+  border: 4px solid var(--border-color);
+  background-color: var(--secondary-color);
+  background-image: url('assets/discordicon.png');
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 999;
+  animation: float-rotate 5s linear infinite;
+  box-shadow: 4px 4px 0px 0px var(--shadow-color);
+  transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+}
+
+.floating-discord:hover {
+  transform: scale(1.1);
+  box-shadow: 8px 8px 0px 0px var(--shadow-color);
+}
+
+@keyframes float-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== PRELOADER ===== */
+#preloaded-intro {
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg-primary);
+  background-image: url('assets/discord-loading.gif');
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 4px solid var(--border-color);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  border-top: 4px solid var(--border-color);
+  background-color: var(--bg-primary);
+  position: relative;
+  z-index: 1;
+}
+
+.footer-header {
+  background-color: var(--accent-color);
+  border-bottom: 4px solid var(--border-color);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.footer-title {
+  font-size: clamp(1.25rem, 4vw, 2rem);
+  letter-spacing: -0.02em;
+}
+
+.discord-widget-container {
+  border: 4px solid var(--border-color);
+  background-color: var(--bg-card);
+  margin: 2rem auto;
+  overflow: hidden;
+  box-shadow: 8px 8px 0px 0px var(--shadow-color);
+}
+
+.discord-widget-container iframe {
+  display: block;
+  border: none;
+  width: 100%;
+}
+
+.footer-bottom {
+  border-top: 4px solid var(--border-color);
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+@media (min-width: 640px) {
+  .awards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .featured-card {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .logo-box img {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .awards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .header-inner {
+    flex-wrap: nowrap;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .logo-box img {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+
+  .marquee-track,
+  .floating-discord {
+    animation: none;
+  }
+
+  .award-card,
+  .neo-button,
+  .neo-button-small,
+  .floating-discord,
+  body {
+    transition: none;
+  }
+}
+
+/* ===== FOCUS STATES (Accessibility) ===== */
+button:focus-visible,
+a:focus-visible {
+  outline: 4px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* ===== SCROLL REVEAL ANIMATIONS ===== */
+.award-card {
+  /* Initial hidden state for scroll animation */
+  opacity: 0;
+  transform: translateY(60px) scale(0.95);
+  transition: 
+    opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 200ms ease-out;
+}
+
+.award-card.is-visible {
+  opacity: 1;
+  transform: translateY(0) rotate(var(--rotation, 0deg)) scale(1);
+}
+
+/* Rotation via custom properties */
+.award-card:nth-child(odd) {
+  --rotation: -1deg;
+}
+
+.award-card:nth-child(even) {
+  --rotation: 1deg;
+}
+
+.award-card.is-visible:nth-child(odd):hover {
+  transform: translateY(-8px) rotate(-1deg) scale(1);
+}
+
+.award-card.is-visible:nth-child(even):hover {
+  transform: translateY(-8px) rotate(1deg) scale(1);
+}
+
+/* Duo buttons layout */
+.award-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Featured card animation */
+.featured-card {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: 
+    opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.featured-card.is-visible {
+  opacity: 1;
+  transform: translateY(0) rotate(1deg) scale(1);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .award-card,
+  .featured-card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+
+/* ===== PRINT STYLES ===== */
+@media print {
+
+  .floating-discord,
+  .marquee-container,
+  .discord-widget-container,
+  #preloaded-intro {
+    display: none !important;
+  }
+
+  .award-card {
+    break-inside: avoid;
+    box-shadow: none !important;
+    border: 2px solid #000 !important;
+  }
 }

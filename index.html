@@ -1,184 +1,100 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 
-<head onload="intro()">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Award ceremony 2024</title>
-    <!-- jquery -->
+    <title>YSP Excellence Awards 2024</title>
+
+    <!-- Space Grotesk Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
+    <!-- Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
 
     <link rel="stylesheet" href="style.css">
-    <script src="style.js"></script>
-<!--Font-link--> 
-
-
-
 </head>
 
-<body data-bs-theme="dark">
-    <div id="preloaded-intro">
+<body data-theme="light">
 
+    <!-- Preloader -->
+    <div id="preloaded-intro" role="status" aria-live="polite">
+        <span class="sr-only">Loading YSP Excellence Awards...</span>
     </div>
-<header class="sticky-top">
-    <button class="floating-button" onclick="themechange()" >
-    <a href="https://discord.com/invite/yessmartypie">
-    <!-- <div class="floating-button"> -->
-    </button>
-    </div>
-</a>
-    <nav class="navbar custom-navbar bg-body-tertiary sticky-top h-1px navbar-expand-md">
-            <div class="container-fluid">
-<!-- Logo on the left -->
-                <div class="col-12 col-md-1 text-center">
-                    <a class="navbar-brand" href="#">
-                    <img src="assets/logo.png" alt="Logo" class="img-fluid"  width="70vw" height="10vh"></a>
-        
-                </div>
-                <div class="position-relative w-100 text-center fs-2 fw-bold">
-                    <span class="navbar-text fs-1" >YSP Excellence Awards 2024 <br></span>
-                    <h4 id="awardwinner" class="text-center fw-bold fs-5 text-decoration-underline">Award Winners</h1>
-                </div>
+
+    <!-- Floating Discord Button -->
+    <a href="https://discord.com/invite/yessmartypie" target="_blank" class="floating-discord" aria-label="Join YSP Discord server">
+        <span class="sr-only">Join our Discord</span>
+    </a>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner container">
+            <div class="logo-box shadow-small sticker-rotate-1">
+                <img src="assets/logo.png" alt="YSP Logo" width="64" height="64">
             </div>
-    </nav>
-</header>
-    <hr>
 
+            <div class="header-title">
+                <h1 class="site-heading">
+                    <span class="heading-main">YSP EXCELLENCE AWARDS <span class="year-badge shadow-small"> 2024</span></span>
+                </h1>
+                <p class="subtitle">AWARD WINNERS</p>
+            </div>
+        </div>
+    </header>
 
-
-
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-
-        <div class="col">
-            <div class=" customcard card">
-                <img src="/assets/Awards/Award.png" class="card-img-top" alt="..." style="height:200%;">
-                <div class="card-body">
-                    <div class="whitecard">
-                    <h5 class="card-title">Most Active Member of the Year</h5>
-                    <p class="card-text card-htext">This award is being presented to the individual who has shown a Great Dedication, Involvement and Constant Participation throughout the whole year.</p> 
-                    </p>
-                </div>
-                </div>
-                
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Decorative Marquee -->
+        <div class="marquee-container">
+            <div class="marquee-track">
+                <span>★ YSP EXCELLENCE AWARDS 2024 ★</span>
+                <span>★ CELEBRATING OUR COMMUNITY ★</span>
+                <span>★ YSP EXCELLENCE AWARDS 2024 ★</span>
+                <span>★ CELEBRATING OUR COMMUNITY ★</span>
+                <span>★ YSP EXCELLENCE AWARDS 2024 ★</span>
+                <span>★ CELEBRATING OUR COMMUNITY ★</span>
             </div>
         </div>
 
-        <div class="col">
-            <div class="card">
-                <img src="distort (1).png" class="card-img-top" alt="..." style="height: 50%; width:50%;">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
+        <!-- Featured Award -->
+        <section id="featured-award" class="featured-section container" aria-label="Featured Award"></section>
+
+        <!-- Awards Grid -->
+        <section class="awards-section container" aria-label="All Awards">
+            <div class="section-header">
+                <h2 class="section-title">ALL AWARDS</h2>
+                <div class="section-line"></div>
             </div>
+            <div id="awards-grid" class="awards-grid"></div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-header">
+            <h2 class="footer-title">JOIN THE COMMUNITY</h2>
         </div>
-
-
-        <div class="col">
-            <div class="card">
-                <img src="distort (1).png" class="card-img-top" alt="..." style="height: 50%; width: 50%;">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
+        <div class="discord-widget-container container shadow-large">
+            <iframe src="https://discord.com/widget?id=761276047974858762&theme=dark"
+                    width="100%" height="500"
+                    allowtransparency="true" frameborder="0"
+                    sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+                    title="YSP Discord Server Widget">
+            </iframe>
         </div>
-
-        <div class="col">
-            <div class="card">
-                <img src="distort (1).png" class="card-img-top" alt="..." style="height: 50%; width: 50%;">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
+        <div class="footer-bottom">
+            <p> YSP EXCELLENCE AWARDS 2024. MADE WITH CHAOS.</p>
         </div>
-
-        <div class="col">
-            <div class="card">
-                <img src="distort (1).png" class="card-img-top" alt="..." style="height: 50%; width: 50%;">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card">
-                <img src="distort (1).png" class="card-img-top" alt="..." style="height: 50%; width: 50%;">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card">
-                <img src="distort (1).png" class="card-img-top" alt="..." style="height: 50%; width: 50%;">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card">
-                <img src="distort (1).png" class="card-img-top" alt="..." style="height: 50%; width: 50%;">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card">
-                <img src="distort (1).png" class="card-img-top" alt="..." style="height: 50%; width: 50%;">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card">
-                <img src="distort (1).png" class="card-img-top" alt="..." style="height: 50%; width: 50%;">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card">
-                <img src="distort (1).png" class="card-img-top" alt="..." style="height: 50%; width: 50%;">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-    <br>
-    <br>
-    <hr>
-    <footer class="row ">
-        <iframe src="https://discord.com/widget?id=761276047974858762&theme=dark" width="100%" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-
     </footer>
 
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="style.js"></script>
 </body>
 
 </html>
