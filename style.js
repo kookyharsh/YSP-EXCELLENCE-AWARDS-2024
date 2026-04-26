@@ -77,7 +77,7 @@ function renderFeaturedAward(award) {
     const container = document.getElementById('featured-award');
     if (!container) return;
 
-    const profileUrl = 'https://discord.com/users/' + encodeURIComponent(award.profileId);
+    const profileUrl = award.link || '#';
 
     container.innerHTML =
         '<div class="featured-card sticker-rotate-1">' +
@@ -89,7 +89,7 @@ function renderFeaturedAward(award) {
         '<h2 class="featured-title">' + escapeHtml(award.title) + '</h2>' +
         '<p class="featured-desc">' + escapeHtml(award.description) + '</p>' +
         '<a href="' + profileUrl + '" target="_blank" rel="noopener noreferrer" class="neo-button">' +
-        'VIEW PROFILE →' +
+        escapeHtml(award.name || 'VIEW PROFILE') + ' →' +
         '</a>' +
         '</div>' +
         '</div>';
@@ -116,20 +116,20 @@ function createAwardCard(award, index) {
             'JOIN DISCORD →' +
             '</a>';
     } else if (isDuo) {
-        const profileUrl1 = 'https://discord.com/users/' + encodeURIComponent(award.profileId);
-        const profileUrl2 = 'https://discord.com/users/' + encodeURIComponent(award.profileId2 || award.profileId);
+        const profileUrl1 = award.link || '#';
+        const profileUrl2 = award.link2 || '#';
         buttonHtml = '<div class="award-buttons">' +
             '<a href="' + profileUrl1 + '" target="_blank" rel="noopener noreferrer" class="neo-button-small">' +
-            'PROFILE 1 →' +
+            escapeHtml(award.name || 'PROFILE 1') + ' →' +
             '</a>' +
             '<a href="' + profileUrl2 + '" target="_blank" rel="noopener noreferrer" class="neo-button-small">' +
-            'PROFILE 2 →' +
+            escapeHtml(award.name2 || 'PROFILE 2') + ' →' +
             '</a>' +
             '</div>';
     } else {
-        const profileUrl = 'https://discord.com/users/' + encodeURIComponent(award.profileId);
+        const profileUrl = award.link || '#';
         buttonHtml = '<a href="' + profileUrl + '" target="_blank" rel="noopener noreferrer" class="neo-button">' +
-            'VIEW PROFILE →' +
+            escapeHtml(award.name || 'VIEW PROFILE') + ' →' +
             '</a>';
     }
 
