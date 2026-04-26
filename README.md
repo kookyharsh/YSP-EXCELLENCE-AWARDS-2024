@@ -1,1 +1,1 @@
-# visit [YSP Excellence Awards](https://kookyharsh.github.io/YSP-EXCELLENCE-AWARDS/)
+# visit [YSP Excellence Awards](https://kookyharsh.github.io/ysp-excellence-awards/)
