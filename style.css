@@ -1,9 +1,3 @@
-/* ============================================================
-   NEO-BRUTALIST DESIGN SYSTEM
-   YSP Excellence Awards 2024
-   ============================================================ */
-
-/* ===== DESIGN TOKENS ===== */
 :root {
   /* Core Palette */
   --cream: #FFFDF5;
@@ -13,7 +7,6 @@
   --muted-violet: #C4B5FD;
   --white: #FFFFFF;
 
-  /* Light Theme (Default) */
   --bg-primary: var(--cream);
   --bg-secondary: var(--secondary-yellow);
   --bg-card: var(--white);
@@ -600,34 +593,37 @@ p {
   gap: 1rem;
 }
 
-/* ===== VIEW COUNTER ===== */
-.view-counter {
+/* ===== VISITOR COUNTER ===== */
+.visitor-counter {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: center;
+  gap: 0.5rem;
   border: 4px solid var(--border-color);
   background-color: var(--secondary-color);
   padding: 0.5rem 1rem;
   box-shadow: 4px 4px 0px 0px var(--shadow-color);
   transform: rotate(-1deg);
+  font-family: 'Space Grotesk', sans-serif;
 }
 
-.view-counter-label {
+.visitor-counter a {
+  color: var(--text-primary);
+  text-decoration: none;
   font-weight: 900;
-  font-size: 0.875rem;
-  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.view-counter-badge {
+.visitor-counter a:hover {
+  text-decoration: underline;
+}
+
+.visitor-counter img,
+.visitor-counter script {
   display: inline-block;
-  background-color: var(--accent-color);
-  border: 4px solid var(--border-color);
-  padding: 0.25rem 0.75rem;
-  font-weight: 900;
-  font-size: 1rem;
-  min-width: 3rem;
-  text-align: center;
-  box-shadow: 2px 2px 0px 0px var(--shadow-color);
+  vertical-align: middle;
 }
 
 /* ===== RESPONSIVE BREAKPOINTS ===== */

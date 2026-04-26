@@ -1,7 +1,4 @@
-/**
- * YSP Excellence Awards 2024
- * Neo-Brutalist Interactions & Dynamic Rendering
- */
+
 
 // ===== YEAR DROPDOWN =====
 function initYearDropdown() {
@@ -55,7 +52,6 @@ window.addEventListener('load', function () {
     // Load awards after everything is ready
     loadAwards();
     initYearDropdown();
-    initViewCounter();
 });
 
 // ===== AWARDS DATA & RENDERING =====
@@ -257,29 +253,6 @@ function initScrollAnimations() {
             featuredCard.classList.add('is-visible');
         }, 500);
     }
-}
-
-// ===== VIEW COUNTER =====
-function initViewCounter() {
-    const counterEl = document.getElementById('view-count');
-    if (!counterEl) return;
-
-    // Use countapi.xyz for a free global hit counter
-    // Namespace and key are unique to this project
-    fetch('https://api.countapi.xyz/hit/ysp-excellence-awards/visits')
-        .then(function (response) {
-            if (!response.ok) throw new Error('Counter API failed');
-            return response.json();
-        })
-        .then(function (data) {
-            if (data && typeof data.value === 'number') {
-                counterEl.textContent = data.value.toLocaleString();
-            }
-        })
-        .catch(function (error) {
-            console.warn('View counter failed to load:', error);
-            counterEl.textContent = 'N/A';
-        });
 }
 
 // ===== UTILITY: SHUFFLE ARRAY =====
