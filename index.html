@@ -40,7 +40,12 @@
 
             <div class="header-title">
                 <h1 class="site-heading">
-                    <span class="heading-main">YSP EXCELLENCE AWARDS <span class="year-badge shadow-small"> 2024</span></span>
+                    <span class="heading-main">YSP EXCELLENCE AWARDS 
+                        <select id="year-dropdown" class="year-badge shadow-small" aria-label="Select year">
+                            <option value="2024" selected>2024</option>
+                            <option value="2025">2025</option>
+                        </select>
+                    </span>
                 </h1>
                 <p class="subtitle">AWARD WINNERS</p>
             </div>
@@ -60,6 +65,13 @@
                 <span>★ CELEBRATING OUR COMMUNITY ★</span>
             </div>
         </div>
+
+        <!-- 2025 Message -->
+        <section id="year-message" class="container" style="display: none;" aria-label="Year message">
+            <div class="no-event-message">
+                <h2 class="no-event-title">THE EVENT NEVER OCCURRED IN 2025</h2>
+            </div>
+        </section>
 
         <!-- Featured Award -->
         <section id="featured-award" class="featured-section container" aria-label="Featured Award"></section>

@@ -3,6 +3,30 @@
  * Neo-Brutalist Interactions & Dynamic Rendering
  */
 
+// ===== YEAR DROPDOWN =====
+function initYearDropdown() {
+    const dropdown = document.getElementById('year-dropdown');
+    const yearMessage = document.getElementById('year-message');
+    const featuredSection = document.getElementById('featured-award');
+    const awardsSection = document.querySelector('.awards-section');
+
+    if (!dropdown) return;
+
+    dropdown.addEventListener('change', function () {
+        const selectedYear = dropdown.value;
+
+        if (selectedYear === '2025') {
+            if (yearMessage) yearMessage.style.display = 'block';
+            if (featuredSection) featuredSection.style.display = 'none';
+            if (awardsSection) awardsSection.style.display = 'none';
+        } else {
+            if (yearMessage) yearMessage.style.display = 'none';
+            if (featuredSection) featuredSection.style.display = '';
+            if (awardsSection) awardsSection.style.display = '';
+        }
+    });
+}
+
 // ===== PRELOADER =====
 $(document).ready(function () {
     // Start preloader fade-out after minimum display time
@@ -30,6 +54,7 @@ window.addEventListener('load', function () {
     }
     // Load awards after everything is ready
     loadAwards();
+    initYearDropdown();
 });
 
 // ===== AWARDS DATA & RENDERING =====
