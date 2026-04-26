@@ -134,7 +134,7 @@ p {
 
 .logo-box {
   border: 4px solid var(--border-color);
-  background-color: var(--secondary-color);
+  background-color: var(--cream);
   padding: 0.5rem;
   display: flex;
   align-items: center;

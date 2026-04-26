@@ -78,6 +78,9 @@ async function loadAwards() {
             renderFeaturedAward(featuredAward);
         }
 
+        // Shuffle regular awards for random order on each refresh
+        shuffleArray(regularAwards);
+
         // Render regular awards grid
         const grid = document.getElementById('awards-grid');
         if (grid) {
@@ -252,6 +255,16 @@ function initScrollAnimations() {
         setTimeout(function() {
             featuredCard.classList.add('is-visible');
         }, 500);
+    }
+}
+
+// ===== UTILITY: SHUFFLE ARRAY =====
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 }
 
