@@ -587,43 +587,6 @@ p {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-/* ===== VISITOR COUNTER ===== */
-.visitor-counter {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  border: 4px solid var(--border-color);
-  background-color: var(--secondary-color);
-  padding: 0.5rem 1rem;
-  box-shadow: 4px 4px 0px 0px var(--shadow-color);
-  transform: rotate(-1deg);
-  font-family: 'Space Grotesk', sans-serif;
-}
-
-.visitor-counter a {
-  color: var(--text-primary);
-  text-decoration: none;
-  font-weight: 900;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.visitor-counter a:hover {
-  text-decoration: underline;
-}
-
-.visitor-counter img,
-.visitor-counter script {
-  display: inline-block;
-  vertical-align: middle;
 }
 
 /* ===== RESPONSIVE BREAKPOINTS ===== */
